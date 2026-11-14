@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Build artifacts
+build/
+dist/
+*.spec
+
+# Compiled native helpers (built by scripts/build_rdp_helper.sh)
+native/rdp_helper
+native/*.dylib
+
+# Generated icon intermediates (final .icns/.png are kept)
+assets/Remotia.iconset/

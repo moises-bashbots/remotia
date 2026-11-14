@@ -1,0 +1,4 @@
+PyQt6>=6.6
+paramiko>=3.0
+pyte>=0.8
+cryptography>=42.0
