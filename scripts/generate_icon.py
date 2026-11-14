@@ -72,9 +72,6 @@ def main() -> None:
     assets = root / "assets"
     assets.mkdir(exist_ok=True)
 
-    # Full-bleed, opaque 1024 for the App Store listing (system rounds it).
-    draw_icon(1024, rounded=False).save(str(assets / "AppStore_1024.png"))
-
     # Window icon (used by the running app).
     draw_icon(512, rounded=True).save(str(assets / "Remotia.png"))
 
@@ -102,7 +99,6 @@ def main() -> None:
     )
     print(f"Wrote {assets / 'Remotia.icns'}")
     print(f"Wrote {assets / 'Remotia.png'}")
-    print(f"Wrote {assets / 'AppStore_1024.png'}")
 
 
 if __name__ == "__main__":

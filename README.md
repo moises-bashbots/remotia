@@ -69,17 +69,15 @@ Tips:
 - For macOS hosts enable *Screen Sharing* and, if you want to use a plain VNC
   password, tick *VNC viewers may control screen with password*.
 - For RDP, `brew install freerdp` (its `sdl-freerdp` client runs natively on
-  macOS — no XQuartz needed) or install *Microsoft Remote Desktop* from the
-  App Store.
+  macOS — no XQuartz needed) or install Microsoft Remote Desktop.
 
 ## Protocol notes / limitations
 
 - The embedded VNC viewer advertises Raw/CopyRect/RRE/Hextile/ZRLE; servers
   that only offer Tight will still work because they fall back to ZRLE/Hextile.
   Tight and cursor/desktop-resize pseudo-encodings are not implemented yet.
-- RDP now renders **inside** the tab via a FreeRDP-based helper; the native
-  client launch remains only as a fallback. Tight-style graphics decoding,
-  audio, clipboard and multi-monitor are not wired up yet.
+- RDP renders **inside** the tab via a FreeRDP-based helper; the native
+  client launch remains only as a fallback. Multi-monitor is not wired up yet.
 - The SSH terminal is monochrome (ANSI colours are on the roadmap).
 
 ## Import from Royal TSX
@@ -112,28 +110,10 @@ This produces:
 
 The bundle includes Python, PyQt, the app, the RDP helper **and** the FreeRDP
 libraries, so it runs standalone. It is ad-hoc signed (right-click → Open on
-first launch, or sign with your Apple Developer certificate for distribution).
+first launch).
 
 Icons are generated with `scripts/generate_icon.py` (outputs
-`assets/Remotia.icns`, `assets/Remotia.png`, and a full-bleed
-`assets/AppStore_1024.png` for the App Store listing).
-
-## Distributing on the Mac App Store
-
-See `assets/remotia.entitlements` for the App Sandbox entitlements (sandbox +
-outgoing network). An App Store release build is:
-
-```bash
-APP_STORE=1 \
-SIGN_IDENTITY="Apple Distribution: Your Name (TEAMID)" \
-APP_STORE_PROFILE=~/Downloads/remotia.provisionprofile \
-scripts/build_macos_app.sh
-```
-
-It requires an Apple Developer Program membership, an *Apple Distribution*
-certificate, and a macOS App Store provisioning profile created in the Apple
-Developer portal. Submission/upload happens in Xcode's Organizer or via
-`xcrun altool` / `notarytool` after the bundle is built.
+`assets/Remotia.icns` and `assets/Remotia.png`).
 
 ## Tests
 

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import os
 import sqlite3
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -15,22 +14,7 @@ DEFAULT_PORTS = {"vnc": 5900, "ssh": 22, "rdp": 3389}
 
 
 def _data_dir() -> Path:
-    # When running inside the App Sandbox, write to our container instead of
-    # the (read-only) user home directory.
-    container = os.environ.get("APP_SANDBOX_CONTAINER_ID")
-    if container:
-        path = (
-            Path.home()
-            / "Library"
-            / "Containers"
-            / container
-            / "Data"
-            / "Library"
-            / "Application Support"
-            / "Remotia"
-        )
-    else:
-        path = Path.home() / ".config" / "remotia"
+    path = Path.home() / ".config" / "remotia"
     path.mkdir(parents=True, exist_ok=True)
     return path
 
