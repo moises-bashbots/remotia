@@ -1,6 +1,11 @@
-# Remotia
+# Remotia — open-source Remmina alternative for macOS
 
-A Remmina-like remote desktop client for the desktop, written in Python + Qt.
+Remotia is a free, open-source **remote desktop client for macOS**. If you're
+looking for a [Remmina](https://remmina.org/) alternative on the Mac, Remotia
+lets you connect to Windows, Linux and macOS machines over **RDP**, **VNC**
+and **SSH** from one clean, tabbed window — no X11/XQuartz, no Docker.
+
+## Features
 
 - **VNC** — fully embedded viewer (renders the remote desktop inside the app,
   forwards keyboard/mouse, clipboard and bell). Supports Raw, CopyRect, RRE,
@@ -19,6 +24,10 @@ A Remmina-like remote desktop client for the desktop, written in Python + Qt.
 
   > Clipboard is currently text-only; file/image clipboard (copying files
   > between machines) is not wired up yet.
+
+Also included: multi-session tabs, a floating connections panel, Royal TSX
+import, keychain password storage, dynamic resolution, and a self-contained
+`.app` / `.dmg` build.
 
 Connection profiles (name, group, server, port, credentials, resolution,
 quality…) are stored in SQLite. Passwords are stored in the macOS Keychain
